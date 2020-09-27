@@ -1,14 +1,15 @@
 <?php
-    $conn = mysqli_connect("localhost", "faskmggq_fasky", "Vazzyz716", "faskmggq_portprojects");
-    $sql = 'SELECT * FROM `Projects` WHERE 1';
-    $result = mysqli_query($conn, $sql);
+   $mysqli = new mysqli("localhost", "faskmggq_fasky", "Vazzyz716", "faskmggq_portprojects");
+   $myArray = array();
+   $sql = 'SELECT * FROM `Projects` WHERE 1';
+   if ($result = $mysqli->query($sql)) {
+      while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+              $myArray[] = $row;
+      }
+      echo json_encode($myArray);
+  }
+  
+  $result->close();
+  $mysqli->close();
 
-    if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-           echo "Title: " . $row["title"]. "<br>";
-        }
-     } else {
-        echo "0 results";
-     }
-     mysqli_close($conn);
 ?>
