@@ -25,10 +25,12 @@ class App extends React.Component {
     .then(json=>{
       results = json;
       console.log(results);
-      allProjects = this.state.projects.map((project)=>
+      allProjects = results.map((project)=>
         <Project styleType={project.styleType} title={project.title} modalNum={project.modalNum} imageLink={project.imageLink} secondImage={project.secondImage} description={project.description}/>
       );
-    });  
+      console.log(allProjects);
+      this.setState({projects:allProjects});
+    });
 
     return (
       <div className="App">
