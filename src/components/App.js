@@ -15,7 +15,7 @@ import About from './About';
 // };
 var results = [];
 
-class App extends Component {
+class App extends React.Component {
 
   render(){
     var allProjects;
