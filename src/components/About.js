@@ -20,8 +20,8 @@ function About() {
         <div id="aboutContact">
           <h1>Let's Talk</h1>
           <p><a href = "mailto: fasanellaky@gmail.com">fasanellaky@gmail.com</a>  |  203-212-0460</p>
-          <p>Bridgeport, CT | Rochester, NY</p>
-          <p><a target="_blank" href="https://www.linkedin.com/in/kyle-fasanella-7a0242127">On LinkedIn</a></p>
+          <p>Denver, CO</p>
+          <p><a target="_blank" href="https://www.linkedin.com/in/kyle-fasanella">On LinkedIn</a></p>
         </div>
         
       </section>
