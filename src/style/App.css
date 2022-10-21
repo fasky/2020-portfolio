@@ -178,6 +178,9 @@ h1{
 .modal-content{
   filter: grayscale(0%) !important; 
 }
+.modal::-webkit-scrollbar{
+  display: none;
+}
 
 .ProjectFullWShowTablet{
   width: 90%;
@@ -223,7 +226,7 @@ h1{
   display: block !important;
   width: auto !important;
   max-width:80% !important;
-  max-height: 80% !important;
+  max-height: 65% !important;
 }
 
 /* Caption of Modal Image */
