@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kyle's Audio Visualizer</title> 
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="audioStyle.css">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <script src="src/audioVis.js"></script>
+        <script src="src/loader.js"></script>
+        <script src="src/main.js"></script>
+        <script src="src/utilities.js"></script>
+    </head>
+    <body>
+        <div id="mainContainer">    
+            <div id="controls">
+                <audio></audio>            
+                <div class="pure-menu pure-menu-horizontal">
+                    <!-- Pure^tm css menu for options-->
+                    <!-- full screen button -->
+                    <ul class="pure-menu-list">
+                        <li class="pure-menu-item pure-menu-allow-hover">
+                            <button id="fsButton" class="pure-button"><i class="fas fa-expand-arrows-alt"></i></button>
+                        </li>   
+                        
+                        <!-- Tracks Menu -->
+                        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                            <a href="#" id="tracksLink" class="pure-menu-link">Tracks</a>
+                            <ul class="pure-menu-children">
+                                <li class="pure-menu-item">
+                                    <select id="trackSelect">
+                                        <option value="src/media/New Adventure Theme.mp3">New Adventure Theme</option>
+                                        <option value="src/media/Ashes to Ashes.mp3">Ashes to Ashes</option>
+                                        <option value="src/media/Speed Of Life.mp3" selected>Speed Of Life</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <!-- Options menu -->
+                        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                            <a href="#" id="effectsLink" class="pure-menu-link">Options</a>
+                            <ul class="pure-menu-children">
+                                <li class="pure-menu-item">EFFECTS:</li>
+                                <li class="pure-menu-item">
+                                    <input class = "check" type="checkbox" name="Invert" id="invert"> Inverse
+                                </li>
+                                <li class="pure-menu-item">
+                                    <input class = "check" type="checkbox" name="Red Tint" id="tintRed"> Red Tint
+                                </li>
+                                <li class="pure-menu-item">
+                                    <input class = "check" type="checkbox" name="Sepia" id="sepia"> Sepia
+                                </li>
+                                <li class="pure-menu-item">
+                                    <input class = "check" type="checkbox" name="Noise" id="noise"> Noise
+                                </li>
+                                <li class="pure-menu-item">
+                                    <input class = "check" type="checkbox" name="Rainbow" id="rainbo"> Rainbow
+                                </li>
+                                <li class="pure-menu-item">SHAPES:</li>
+                                <li class="pure-menu-item">
+                                    <input class = "check" type="checkbox" name="Lines" id="lines" checked> Lines
+                                </li>
+                                <li class="pure-menu-item">
+                                    <input class = "check" type="checkbox" name="Circles" id="circles"> Circles
+                                </li>
+                                <li class="pure-menu-item">
+                                    <input class = "check" type="checkbox" name="Curves" id="curves" checked> Curves
+                                </li>
+                                <li class="pure-menu-item">
+                                    <input class = "check" type="checkbox" name="Rectangles" id="rectangles" checked> Rectangles
+                                </li>
+                                <li class="pure-menu-item">DATA:</li>
+                                <form id = "radioStuff">
+                                    <li class="pure-menu-item">
+                                        <label class="pure-radio">
+                                            <input id="waveRadio" type="radio" name="optionsRadios" value="waveform">
+                                            Waveform
+                                        </label>
+                                    </li>
+                                    <li class="pure-menu-item">
+                                        <label class="pure-radio">
+                                            <input id="freqRadio" type="radio" name="optionsRadios" value="frequency">
+                                            Frequency
+                                        </label>
+                                    </li>
+                                    <li class="pure-menu-item">
+                                        <label class="pure-radio">
+                                            <input id="bothForms" type="radio" name="optionsRadios" value="bothForms" checked>
+                                            Both
+                                        </label>
+                                    </li>
+                                </form>
+                                
+                                <!-- For smaller screens -->
+                                <div id="toHide">
+                                    <li class="pure-menu-item">Volume:</li>
+                                    <li class="pure-menu-item">
+                                        <input type="range" id="volumeSlider" class = "slider" min="0" max="2" value="1" step="0.01">
+    <!--                                    <span id="volumeLabel">???</span>-->
+                                    </li>
+                                    <li class="pure-menu-item">Speed:</li>
+                                    <li class="pure-menu-item">
+                                        <input type="range" min = "0" max ="400" value = "100" class="slider" id="mySpeed">
+                                    </li>
+                                    <li class="pure-menu-item">High Shelf:</li>
+                                    <li class="pure-menu-item">
+                                        <input type="range" min = "0" max ="10000" value = "1000" class="slider" id="gain">
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        
+                        <!--Slider menu-->
+                        <li id="hideSliders" class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                            <a href="#" id="effectsLinkHide" class="pure-menu-link">Sliders</a>
+                            <ul class="pure-menu-children">
+                                <li class="pure-menu-item">Volume:</li>
+                                <li class="pure-menu-item">
+                                    <input type="range" id="volumeSliderHide" class = "slider" min="0" max="2" value="1" step="0.01">
+                                </li>
+                                <li class="pure-menu-item">Speed:</li>
+                                <li class="pure-menu-item">
+                                    <input type="range" min = "0" max ="400" value = "100" class="slider" id="mySpeedHide">
+                                </li>
+                                <li class="pure-menu-item">High Shelf:</li>
+                                <li class="pure-menu-item">
+                                    <input type="range" min = "0" max ="10000" value = "1000" class="slider" id="gainHide">
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <!-- play button-->
+                        <li class="pure-menu-item pure-menu-allow-hover">
+                            <button id="playButton" class="pure-button" data-playing="no"><i class="fas fa-play"></i></button>
+                        </li>
+                        
+                    </ul>
+                    
+                </div>
+                
+            </div> <!--Controls end -->
+            <br>
+            <canvas width="640" height="400"></canvas>
+        </div>
+        <footer>If audio doesn't play, keep trying to click, or change the track.</footer>
+    </body>
+</html>

@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+
+html,body{
+    font-size: 1.1em;
+    margin:0;
+    overflow: hidden;
+}
+body {
+    font-family: 'Righteous', cursive;
+    background: rgb(23, 23, 23);
+}
+
+canvas {
+    background: rgb(23, 23, 23);
+    z-index: -2;
+}
+
+#controls{
+    color:#d8d8d8;
+    display: inline;
+}
+#toHide{
+    display: none;
+}
+
+footer{
+    color:#dbdbdb;
+    text-align: center;
+}
+
+
+/*Buttons*/
+#playButton{
+    color: whitesmoke;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(28, 184, 65);
+}
+
+#fsButton{
+    color: whitesmoke;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(223, 117, 20);
+}
+
+#trackSelect{
+    font-family: 'Monoton', cursive;
+    color:#d8d8d8;
+    background:rgb(23, 23, 23);
+    border-radius: 4px;
+    font-size: 1.3em;
+}
+
+/*Pure menu edits */
+.pure-menu-link{
+    color:#d8d8d8;
+}
+.pure-menu-item{
+    color:#d8d8d8;
+    z-index: 1;
+}
+.pure-menu{
+    text-align: center;
+    margin-top:10px;
+    margin-bottom: -10px;
+}
+.pure-menu-children{
+    background: rgb(23, 23, 23);
+    padding-top:4px;
+}
+.pure-menu-link:hover{
+    background: rgb(23, 23, 23);
+}
+.pure-menu-link:focus{
+    background: rgb(23, 23, 23);
+}
+
+/*Code from https://www.w3schools.com/howto/howto_js_rangeslider.asp, for sliders*/
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 3px;   
+    background: rgba(216, 216, 216, 0.69);
+    outline: none;
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: rgb(222, 47, 148);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+/*Media queries*/
+@media only screen and (max-width: 500px){
+    #toHide{
+        display: inline;
+    }
+    #hideSliders{
+        display:none;
+    }
+    .pure-menu-has-children{
+        margin-left:-5px;
+        margin-right:-5px;
+        margin-top:0px;
+    }
+    
+}
+
+@media only screen and (max-width: 350px){
+    .pure-menu-has-children{
+        margin-left:-10px;
+        margin-right:-10px;
+        margin-top:0px;
+    }
+    
+}

@@ -1,0 +1,141 @@
+body{
+    text-align: center;
+    background: #f7f7f7;
+    background-image: url(media/interlaced.png);
+}
+
+td a{
+    padding:20px;
+}
+
+.myheader{
+    background-color: #191919;
+    color: #efefef;
+    padding: 1rem 2rem;
+    margin-bottom:1rem;
+}
+
+#weatherHeader,#genInfoHeader{
+    margin:30px;
+}
+.subHeader{
+    margin:auto;
+    margin-bottom:20px;
+}
+
+#mapid 
+{ 
+    height: 740px; 
+    width:80%;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 4px;
+}
+
+#options, #optionsSearch, #sort{
+    width:300px;
+    text-align: center;
+    margin:auto;
+    margin-bottom:30px;
+}
+#sort{
+    margin-top:30px;
+}
+#sortHeader{
+    margin-bottom: 20px;
+}
+
+#searchButton{
+    margin:auto;
+    margin-top:20px;
+}
+
+#weatherButton{
+    margin:auto;
+    font-size: 10px;
+    margin-top:10px;
+}
+
+#loadingIcons{
+    position: absolute;
+    top: 786px;
+    width:60px;
+    left:10.5%;
+    z-index: 400;
+    padding: 10px;
+    border:3px;
+    border-color: black;
+    border-style: dotted;
+    border-radius: 200px;
+    background: rgba(242, 255, 189, 0.62);
+}
+
+#footer{
+    margin-top:30px;
+    margin-bottom: 20px;
+}
+
+#basemaps-wrapper {
+    position: absolute;
+    top: 140px;
+    right: 12%;
+    z-index: 400;
+    background: #f0f0f0;
+    padding: 10px;
+}
+
+#wetmaps-wrapper {
+    position: absolute;
+    top: 200px;
+    right: 12%;
+    z-index: 400;
+    background: #f0f0f0;
+    padding: 10px;
+}
+
+td{
+    font-size: 14px;
+}
+
+#desc{
+    width:80%;
+}
+#infos{
+    padding:10px;
+}
+
+#dataTable{
+    width:80%;
+    margin:auto;
+}
+
+#weatherIcons{
+    margin-bottom:30px;
+}
+
+#parkImg{
+    height:30%;
+    width:30%;
+    border-radius: 100px;
+    margin-bottom:20px;
+}
+
+/* css to customize Leaflet default styles  */
+.leaflet-popup-content {
+    text-align: center;
+    background-color: #1d1d1d;
+    font-size:15px;
+    color:#ebebeb;
+    border-radius: 20px;
+    padding:20px;
+    padding-bottom: 10px;
+}
+.leaflet-popup-content-wrapper {
+    background-color: #2e432e;
+    border-radius:120px;
+    border-top-right-radius: 10px;
+}
