@@ -7,7 +7,7 @@ function About() {
       <section id="aboutBody">
         <div id="aboutMain">
           <h1>About Kyle</h1>
-          <p>Kyle Fasanella is a summer 2020 RIT grad with a B.S. in Game Development.</p>
+          <p>Kyle Fasanella is an RIT grad with a B.S. in Game Development.</p>
           <p>He spent two co-ops at RIT as a full-stack web developer.</p>
           <p>Much of his favorite classwork dealt with web development and he is pursuing a career in the field.</p>
           <p>He has game and software projects under his belt, both for class and personal.</p>
@@ -22,6 +22,7 @@ function About() {
           <p><a href = "mailto: fasanellaky@gmail.com">fasanellaky@gmail.com</a>  |  203-212-0460</p>
           <p>Denver, CO</p>
           <p><a target="_blank" href="https://www.linkedin.com/in/kyle-fasanella">On LinkedIn</a></p>
+          <p><a target="_blank" href="https://github.com/fasky">GitHub</a> | <a target="_blank" href="https://sketchfab.com/fasky">SketchFab</a> | <a target="_blank" href="https://fasky.itch.io/">Itch</a></p>
         </div>
         
       </section>
