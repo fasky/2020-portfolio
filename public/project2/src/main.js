@@ -220,32 +220,62 @@ const app = new Vue({
         search(){
             this.status = "Loading...";
             this.loadingState = this.loadingUrl[0].data;
-            fetch("./src/get-data.php?limit=" + this.numResults + "&stateCode=" + this.state)
-            //of9vJt1PZRwnxTuz2CMsa47f3SIO0LA8NAJGvoJu - np api key
-            //check if working
-//                .then(res => res.text())          // convert to plain text
-//                .then(text => console.log(text))  // then log it out
-            .then(response => {
-                if(!response.ok){
-                    this.status = "Try another search";
-                    throw Error(`ERROR: ${response.statusText}`);
-                }
-                return response.json();
-            })
-            .then(json => {	
-                this.result = json;
-                this.updateMap();
-                this.loadingState = this.loadingUrl[1].data;
-                this.dataType = 'stateSelection';
-                if(this.firstLoad == false){
-                    this.writeData();
-                }
-                else{
-                    this.firstLoad = false;
-                }
-                //console.log(this.result);
-                this.status = this.result.data.length + " Results";
-            });
+            if(this.state == "ALL"){
+                fetch('https://developer.nps.gov/api/v1/parks?limit=' + this.numResults + '&api_key=wla4KaDBoAn5yVFfszK4rA8XmaM9sZwa430qHtyj&fields=entranceFees%2Cimages')
+                //of9vJt1PZRwnxTuz2CMsa47f3SIO0LA8NAJGvoJu - np api key
+                //check if working
+    //                .then(res => res.text())          // convert to plain text
+    //                .then(text => console.log(text))  // then log it out
+                .then(response => {
+                    if(!response.ok){
+                        this.status = "Try another search";
+                        throw Error(`ERROR: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(json => {	
+                    this.result = json;
+                    this.updateMap();
+                    this.loadingState = this.loadingUrl[1].data;
+                    this.dataType = 'stateSelection';
+                    if(this.firstLoad == false){
+                        this.writeData();
+                    }
+                    else{
+                        this.firstLoad = false;
+                    }
+                    //console.log(this.result);
+                    this.status = this.result.data.length + " Results";
+                });
+            }
+            else{
+                fetch('https://developer.nps.gov/api/v1/parks?stateCode=' + this.state + '&limit=' + this.numResults + '&api_key=wla4KaDBoAn5yVFfszK4rA8XmaM9sZwa430qHtyj&fields=entranceFees%2Cimages')
+                //of9vJt1PZRwnxTuz2CMsa47f3SIO0LA8NAJGvoJu - np api key
+                //check if working
+    //                .then(res => res.text())          // convert to plain text
+    //                .then(text => console.log(text))  // then log it out
+                .then(response => {
+                    if(!response.ok){
+                        this.status = "Try another search";
+                        throw Error(`ERROR: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(json => {	
+                    this.result = json;
+                    this.updateMap();
+                    this.loadingState = this.loadingUrl[1].data;
+                    this.dataType = 'stateSelection';
+                    if(this.firstLoad == false){
+                        this.writeData();
+                    }
+                    else{
+                        this.firstLoad = false;
+                    }
+                    //console.log(this.result);
+                    this.status = this.result.data.length + " Results";
+                });
+            }
         }, // end search
         
         //use search term for specific search
@@ -260,7 +290,7 @@ const app = new Vue({
             for(let j = 1; j < splitTerm.length; j++){
                 formattedSearchTerm += "_" + splitTerm[j];
             }
-            fetch("./src/get-data.php?limit=" + this.numResults + "&searchTerm=" + formattedSearchTerm)
+            fetch("https://developer.nps.gov/api/v1/parks?api_key=wla4KaDBoAn5yVFfszK4rA8XmaM9sZwa430qHtyj&limit=" + this.numResults + "&searchTerm=" + formattedSearchTerm)
             .then(response => {
                 if(!response.ok){
                     this.status = "Try another search";
